@@ -2,7 +2,7 @@ let n = 16;
 const cont = document.getElementById('container');
 
 function changeColor (e){
-    e.target.setAttribute("style", "background: blue;");
+    e.target.setAttribute("style", `flex: 1 1 ${1024/n}px; background: blue;`);
 };
 
 createGrid(n);
@@ -13,9 +13,12 @@ function createGrid(n) {
         div1 = document.createElement('div');
         cont.appendChild(div1);
         console.log(i+1);
+        div1.setAttribute("style", `flex: 1 1 ${1024/n}px`);
         div1.addEventListener("mouseover", changeColor);
     }
 }
+
+
 
 function reset(e){
     n = prompt("Please enter the number of squares");
