@@ -1,11 +1,17 @@
 let n = 16;
 const cont = document.getElementById('container');
 
-function changeColor (e){
-    e.target.setAttribute("style", `flex: 1 1 ${1024/n}px; background: blue;`);
-};
-
 createGrid(n);
+//Stolen from MDN's guide
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+
+
+function changeColor (e){
+    const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+    e.target.setAttribute("style", `flex: 1 1 ${1024/n}px; background: ${rndCol};`);
+};
 
 function createGrid(n) {
     grid = n * n;
