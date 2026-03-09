@@ -1,15 +1,31 @@
 let n = 16;
-let grid = n * n;
 const cont = document.getElementById('container');
-console.log(cont);
 
 function changeColor (e){
     e.target.setAttribute("style", "background: blue;");
 };
 
-for (let i = 0; i < grid; i++) {
-    div1 = document.createElement('div');
-    cont.appendChild(div1);
-    console.log(i+1);
-    div1.addEventListener("mouseover", changeColor);
+createGrid(n);
+
+function createGrid(n) {
+    grid = n * n;
+    for (let i = 0; i < grid; i++) {
+        div1 = document.createElement('div');
+        cont.appendChild(div1);
+        console.log(i+1);
+        div1.addEventListener("mouseover", changeColor);
+    }
 }
+
+function reset(e){
+    n = prompt("Please enter the number of squares");
+    if(n > 100) n = 100;
+    if(n < 1) n = 1
+    alert(`Entered ${n} square(s).`);
+    cont.textContent = '';
+    createGrid(n);
+
+}
+
+btn = document.querySelector("button");
+btn.addEventListener("click", reset);
